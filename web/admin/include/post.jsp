@@ -28,7 +28,7 @@
                        value="${u.id}" />
             </c:forEach>
             <fmt:formatDate pattern="yyyy-MM-dd" value="${curDate}" />
-            <sql:update var="resutl" dataSource="${ds}" >
+            <sql:update var="result" dataSource="${ds}" >
                 insert into post(title, post_date, content, status, post_category, user_id) 
                 value('${param.p_title}', '<fmt:formatDate pattern="yyyy-MM-dd" value="${curDate}" />', '${param.p_content}', 'publish', ${param.p_cat}, ${tmpUID} ) 
             </sql:update>
