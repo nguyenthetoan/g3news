@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+
         <c:if test="${not empty param.cat_name}">
             <sql:update dataSource="${ds}" var="result">
                 insert into category(name, user_id) value("${param.cat_name}" ,${param.userid})

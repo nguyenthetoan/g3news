@@ -15,7 +15,6 @@
         <%
             session.removeAttribute("loginUser");
             response.sendRedirect("login.jsp");
-        %>
-        
+        %>  
     </body>
 </html>

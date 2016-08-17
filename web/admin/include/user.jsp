@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-       
+
         <c:if test="${not empty param.u_name or not empty param.u_password}">
             <sql:update dataSource="${ds}" var="result">
                 insert into user(username, user_status, user_realname, password) value("${param.u_name}" ,${param.u_role}, "${param.u_nicename}", "${param.u_password}")
