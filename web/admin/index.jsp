@@ -19,12 +19,10 @@
         <% if ((session.getAttribute("loginUser") == null)) { %>
         Youre not logged in. <a href="login.jsp">login here</a>
         <% } else {%>
-
-        <h1>Welcome, <%=session.getAttribute("loginUser")%> </h1>
+        
+        <h1>Welcome, <%=session.getAttribute("loginUser")%> <%= session.getAttribute("userRole") %> </h1>
         <a href="logout.jsp">log out</a>
-        <sql:setDataSource scope="session" var="ds" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://210.245.85.214:3306/news"
-                           user="admin" password="password"/>
+        <%@include file="include/db-config.jsp" %>
         <c:set scope="application" var="curDate" value="<%= new java.util.Date()%>" />
 
         <div class="box-create-category">

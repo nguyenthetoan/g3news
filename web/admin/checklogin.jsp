@@ -13,9 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://210.245.85.214:3306/news?useUnicode=true&characterEncoding=UTF-8"
-                           user="admin" password="password"/>
+        <%@include file="include/db-config.jsp" %>
         <c:if test="${ empty param.username or empty param.password}">
             <c:redirect url="login.jsp" >
                 <c:param name="errMsg" value="Please Enter UserName and Password" />
@@ -32,9 +30,12 @@
             </sql:query>
 
             <c:forEach items="${selectQ.rows}" var="r">
-
                 <c:choose>
                     <c:when test="${r.kount gt 0}">
+                        <sql:query dataSource="${ds}" var="getRole">
+                            select user_status from User where username='${param.username}' and '${param.password}'
+                        </sql:query>
+                        <c:set scope="session" var="userRole" value="${getRole.rows[0]}" />
                         <c:set scope="session"
                                var="loginUser"
                                value="${param.username}"/>
