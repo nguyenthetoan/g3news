@@ -13,6 +13,7 @@
     </head>
     <body>
         <%
+            session.removeAttribute("userRole");
             session.removeAttribute("loginUser");
             response.sendRedirect("login.jsp");
         %>  

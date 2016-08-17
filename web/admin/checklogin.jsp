@@ -35,7 +35,7 @@
                         <sql:query dataSource="${ds}" var="getRole">
                             select user_status from User where username='${param.username}' and '${param.password}'
                         </sql:query>
-                        <c:set scope="session" var="userRole" value="${getRole.rows[0]}" />
+                        <c:set scope="session" var="userRole" value="${getRole.rows[0].user_status}" />
                         <c:set scope="session"
                                var="loginUser"
                                value="${param.username}"/>
