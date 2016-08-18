@@ -4,7 +4,67 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Aug 18, 2016, 1:53:21 AM
-    Author     : rofl
+    Created on : Aug 17, 2016, 3:21:23 PM
+    Author     : Windows-Avi
 */
 
+/*page login*/
+
+#formlogin{
+    height: 500px;
+    display: block;
+    margin-top: 100px;
+    padding: 60px;
+}
+
+#boxPass{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+/*page index*/
+
+#welcome{
+    margin-left: 14px;
+    height: 120px;
+    
+}
+
+.add-new-cat{
+    margin-left: 14px;
+}
+
+.add-new-post{
+    margin-left: 14px;
+}
+
+.add-new-user{
+    margin-left: 14px;
+}
+
+
+#postcontent{
+    height: 400px;
+    width: 400px;
+}
+#posttitle{
+    margin-left: 24px;
+}
+
+#createuser{
+    margin-left: 14px;
+}
+.boxUser{
+    margin-bottom: 4px;
+}
+
+.boxCategory{
+    margin-bottom: 4px;
+}
+
+#logout1{
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+    margin-right: 14px;
+}

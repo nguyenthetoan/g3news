@@ -8,7 +8,7 @@
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,6 +20,10 @@
             <jsp:include page="layout/page-header.jsp"/>
         </header>
         
-        <h1>Home Page</h1>
+        <div hidden>
+            <sql:query dataSource="${ds}" var="tenNewestPost">
+                SELECT * FROM post order by id desc limit 10;
+            </sql:query>
+        </div>
     </body>
 </html>

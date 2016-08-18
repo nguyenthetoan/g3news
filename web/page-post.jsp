@@ -22,52 +22,53 @@
     <body class='container'>
         <header>
             <jsp:include page="layout/page-header.jsp"/>
-        </header>
-
-        <div style="visibility: hidden" id="hiddenDiv">
             <sql:query dataSource="${ds}" var='foundPost'>
                 select * from post join user on post.user_id = user.id where post.id=${param.postId};
             </sql:query>
 
             <c:set var="thisPost" value="${foundPost.rows[0]}"/>
+        </header>
+
+        <div style="visibility: hidden" id="hiddenDiv">
             ${thisPost.title}
         </div>
 
         <main class="row">
-            <section id='headingSection' class="row">
-                <div class="row">
-                    <h5 style="text-align: right" class="col-md-2 col-md-offset-6">${thisPost.post_date}</h5>
-                </div>
-                <div class="col-md-8 col-md-offset-1">
-                    <h1>${thisPost.title}</h1>
-                </div>                
-            </section>
+            <div class="col-md-10 col-md-offset-1">
+                <section id='headingSection' class="row">
+                    <div class="row">
+                        <h5 style="text-align: right" class="col-md-2 col-md-offset-6">${thisPost.post_date}</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <h1>${thisPost.title}</h1>
+                    </div>                
+                </section>
 
-            <section id="contentSection" class="row">
-                <div class="col-md-7 col-md-offset-1">
-                    ${thisPost.content}
-                </div>                
-            </section>
+                <section id="contentSection" class="row">
+                    <div class="col-md-7">
+                        ${thisPost.content}
+                    </div>                
+                </section>
 
-            <section id="writerSection" class="row">
-                <b style="text-align: right" class="col-md-2 col-md-offset-6">${thisPost.username}</b>
-            </section>
+                <section id="writerSection" class="row">
+                    <b style="text-align: right" class="col-md-2 col-md-offset-6">${thisPost.user_realname}</b>
+                </section>
 
-            <section id="commentSection" class="row">
-                <div class="col-md-6 col-md-offset-1">
-                    <jsp:include page='layout/comment-section.jsp'>
-                        <jsp:param name="postId" value="${param.postId}"/>
-                    </jsp:include>
-                </div>
-            </section>
+                <section id="commentSection" class="row">
+                    <div class="col-md-6">
+                        <jsp:include page='layout/comment-section.jsp'>
+                            <jsp:param name="postId" value="${param.postId}"/>
+                        </jsp:include>
+                    </div>
+                </section>
+            </div>
         </main>
 
-        <footer>
-
-        </footer>
+        <script>
+            $(document).ready(function () {
+                $('title').text($('#hiddenDiv').text());
+            });
+        </script>
     </body>
 </html>
 
-<script>
-    $('title').text($('#hiddenDiv').text());
-</script>

@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
+        <sql:setDataSource var="ds" scope="session" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://210.245.85.214:3306/news?useUnicode=true&characterEncoding=UTF-8"
                            user="admin" password="password"/>
     </body>

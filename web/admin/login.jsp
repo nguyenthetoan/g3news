@@ -10,20 +10,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" media="screen" href="../css/bootstrap.min.css"/>
+        <link href="../css/styles.css" rel="stylesheet"/>
         <title>G3 News CMS Login</title>
     </head>
-    <body>
+    <body class="container">
+        <div id="login-box" class="row">
 
-        <div id="login-box">
-            <h1>Sign In Please</h1>
-            <form method="POST" action="checklogin.jsp" >
-                Username: <input type="text" name="username"/><br/>
-                Password: <input type="password" name="password"/><br/>
-                <input value="Login" type="submit" />
-            </form>
-            <font color="red"><c:if test="${not empty param.errMsg}">
-                <c:out value="${param.errMsg}" />
-            </c:if></font>
+            <div id="formlogin" class="col-md-offset-4 col-md-4">
+                <h1>Sign In Please</h1>
+                <form method="POST" action="checklogin.jsp" >
+                    Username: <input type="text" name="username" id="boxUser"/><br/>
+                    Password: <input type="password" name="password" id="boxPass"/><br/>
+                    <input value="Login" type="submit" />
+                </form>
+                <font color="red"><c:if test="${not empty param.errMsg}">
+                    <c:out value="${param.errMsg}" />
+                </c:if>
+                </font>
+            </div>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>

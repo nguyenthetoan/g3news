@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="container">
         <header>
             <%@include file="layout/page-header.jsp" %>
         </header>

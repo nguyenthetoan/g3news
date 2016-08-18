@@ -4,6 +4,7 @@
     Author     : rofl
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <!DOCTYPE html>
@@ -13,8 +14,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <sql:update dataSource="${ds}" var="result">
-            update comment set status = ${param.status} where id = ${param.comId}
-        </sql:update>
+        <c:if test="${param.status == 'remove'}">
+            <sql:update dataSource="${ds}" var="result">
+                delete from comment where id = ${param.comId}
+            </sql:update>
+        </c:if>
+        <c:otherwise>
+            <sql:update dataSource="${ds}" var="result">
+                update comment set status = '${param.status}' where id = ${param.comId}
+            </sql:update>
+        </c:otherwise>
     </body>
 </html>
